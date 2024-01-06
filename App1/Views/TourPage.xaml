@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="App1.Views.TourPage">
+
+    <StackLayout>
+        <!-- Добавляем ListView для отображения данных из таблицы Tour -->
+        <ListView x:Name="tourListView" ItemSelected="OnTourSelected">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal">
+                            <!-- Добавляем текстовые элементы -->
+                            <Label Text="{Binding TourId}" />
+                            <Label Text="{Binding TourName}" />
+
+                            <!-- Добавляем кнопку и привязываем ее к функции -->
+                            <Button Text="Delete" Clicked="OnButtonClicked" CommandParameter="{Binding TourId}" />
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <!-- Другие элементы интерфейса, если они есть -->
+        <!-- Добавляем кнопку -->
+        <!--<Button Text="Delete" Clicked="OnRemoveButtonClickedAsync" />-->
+        <!-- Другие элементы интерфейса, если они есть -->
+    </StackLayout>
+
+</ContentPage>
